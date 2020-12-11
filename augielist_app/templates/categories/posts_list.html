@@ -1,0 +1,14 @@
+{% extends 'categories/base.html' %}
+
+{% block content %}
+
+<h1> All {{ category.category_name }}</h1>
+<ul>
+  {% for post in posts %}
+    <div>
+      <li><a href="{% url 'post_detail' category_id=category.id post_id=post.id %}">{{ post.post_title }}</a></li>
+    </div>
+  {% endfor %}
+</ul>
+<a href="{% url 'new_post' category_id=category.id %}">Add a new post to {{ category.category_name }}</a>
+{% endblock %}

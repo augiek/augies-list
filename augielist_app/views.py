@@ -48,12 +48,12 @@ def get_post(post_id):
 def posts_list(request, category_id):
     category = get_category(category_id)
     posts = category.posts.all()
-    return render(request, 'posts/posts_list.html', {'category': category, 'posts': posts})
+    return render(request, 'categories/posts_list.html', {'category': category, 'posts': posts})
 
 def post_detail(request, category_id, post_id):
     category = get_category(category_id)
     post = get_post(post_id)
-    return render(request, 'posts/post_detail.html', {'category': category, 'post': post})
+    return render(request, 'categories/post_detail.html', {'category': category, 'post': post})
 
 def new_post(request, category_id):
     category = get_category(category_id)
@@ -66,7 +66,7 @@ def new_post(request, category_id):
             return redirect('post_detail', category_id=post.category.id, post_id=post.id)
     else:
         form = PostForm()
-    return render(request, 'posts/post_form.html', {'form': form, 'type_of_request': 'New'})
+    return render(request, 'categories/post_form.html', {'form': form, 'type_of_request': 'New'})
 
 def edit_post(request, category_id, post_id):
     category = get_category(category_id)
@@ -75,14 +75,15 @@ def edit_post(request, category_id, post_id):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
+            post.category = category
             post.save()
             return redirect('post_detail', post_id=post.id, category_id=category_id)
     else:
         form = PostForm(instance=post)
-    return render(request, 'posts/post_form.html', {'form': form, 'type_of_request': 'Edit'})
+    return render(request, 'categories/post_form.html', {'form': form, 'type_of_request': 'Edit'})
 
 def delete_post(request, category_id, post_id):
     if request.method == "POST":
         post = get_post(post_id)
         post.delete()
-    return redirect('post_list', category_id=category_id)
+    return redirect('posts_list', category_id=category_id)

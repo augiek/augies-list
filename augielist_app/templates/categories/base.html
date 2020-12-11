@@ -1,15 +1,18 @@
 {% load static %}
 <html>
   <head>
-    <title>Augie's List</title>
+    <title>My Blog</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/augielist_app.css' %}">
   </head>
   <body>
     <div class="page-header">
+      <a href="{% url 'new_category' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      <h1><a href="{% url 'categories_list' %}">Augie's List</a></h1>
     </div>
+
     <div class="content container">
       <div class="row">
         <div class="col-md-8">

@@ -1,0 +1,23 @@
+{% extends 'categories/base.html' %}
+
+{% block content %}
+
+<div>
+  <h2>{{post.post_title}}</h2>
+  <h4>${{post.post_price}}</h4>
+  <h4>{{post.post_description}}</h4>
+  <h4>{{post.post_email}}</h4>
+  <a href="{% url 'category_detail' category_id=category.id %}">Back to all {{category.category_name}}</a>
+
+  <br>
+  <br>
+  <form name="edit_post" method="POST" action="{% url 'edit_post' category_id=category.id post_id=post.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Edit post" />
+  <form name="delete_post" method="POST" action="{% url 'delete_post' category_id=category.id post_id=post.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete post" />
+  </form>
+</div>
+
+{% endblock %}
