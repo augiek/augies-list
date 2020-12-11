@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <div>
   <h2>{{post.post_title}}</h2>
   <h4>{{post.post_description}}</h4>
@@ -13,3 +17,5 @@
     <input type="submit" value="Delete post" />
   </form>
 </div>
+
+{% endblock %}

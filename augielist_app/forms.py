@@ -9,5 +9,5 @@ class CategoryForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('category', 'post_title', 'post_price', 'post_description', 'post_email')
+        fields = ('post_title', 'post_price', 'post_description', 'post_email')
 

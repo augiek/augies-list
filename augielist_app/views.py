@@ -45,7 +45,7 @@ def delete_category(request, category_id):
 def get_post(post_id):
     return Post.objects.get(id=post_id)
 
-def post_list(request, category_id):
+def posts_list(request, category_id):
     category = get_category(category_id)
     posts = category.posts.all()
     return render(request, 'posts/posts_list.html', {'category': category, 'posts': posts})

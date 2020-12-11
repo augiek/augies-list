@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1> All Posts for {{ category.category_name }} </h1>
 <ul>
   {% for post in posts %}
@@ -8,3 +12,4 @@
 </ul>
 
 <a href="{% url 'new_post' category_id=category.id %}">Add a new post</a>
+{% endblock %}
