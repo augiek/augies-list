@@ -7,6 +7,7 @@
   <form name="edit_category" method="POST" action="{% url 'edit_category' category_id=category.id %}"> 
     {% csrf_token %}
     <input type="submit" value="Edit category" /></form>
+    
   <form name="delete_category" method="POST" action="{% url 'delete_category' category_id=category.id %}">
     {% csrf_token %}
     <input type="submit" value="Delete category" />

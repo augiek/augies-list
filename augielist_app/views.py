@@ -40,8 +40,9 @@ def delete_category(request, category_id):
     if request.method == "POST":
         category = get_category(category_id)
         category.delete()
-    return redirect('category_list')
+    return redirect('categories_list')
 
+# post-related views:
 def get_post(post_id):
     return Post.objects.get(id=post_id)
 
