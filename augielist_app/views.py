@@ -4,6 +4,7 @@ from .forms import CategoryForm, PostForm
 from django.core.exceptions import *
 from django.template import RequestContext
 
+# category-related views
 def get_category(category_id):
     return Category.objects.get(id=category_id)
 
