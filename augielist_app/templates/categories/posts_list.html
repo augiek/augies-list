@@ -3,12 +3,28 @@
 {% block content %}
 
 <h1> All {{ category.category_name }}</h1>
+<div>
+  <!-- <h2>{{ category.category_name }}</h2> -->
+  <!-- <br> -->
+  <a class="btn btn-default" href="{% url 'edit_category' category_id=category.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'delete_category' category_id=category.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+  <!-- <form name="edit_category" method="POST" action="{% url 'edit_category' category_id=category.id %}"> 
+    {% csrf_token %}
+    <input type="submit" value="Edit category" /></form>
+
+  <form name="delete_category" method="POST" action="{% url 'delete_category' category_id=category.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete category" />
+  </form> -->
+</div>
+<hr>
 <ul>
   {% for post in posts %}
     <div>
-      <li><a href="{% url 'post_detail' category_id=category.id post_id=post.id %}">{{ post.post_title }}</a></li>
+      <li><a href="{% url 'post_detail' category_id=category.id post_id=post.id %}">{{ post.post_title }}, ${{ post.post_price }}</a></li>
     </div>
   {% endfor %}
 </ul>
+<hr>
 <a href="{% url 'new_post' category_id=category.id %}">Add a new post to {{ category.category_name }}</a>
 {% endblock %}

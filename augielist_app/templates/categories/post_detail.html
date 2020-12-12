@@ -3,21 +3,13 @@
 {% block content %}
 
 <div>
-  <h2>{{post.post_title}}</h2>
-  <h4>${{post.post_price}}</h4>
-  <h4>{{post.post_description}}</h4>
-  <h4>{{post.post_email}}</h4>
-  <a href="{% url 'category_detail' category_id=category.id %}">Back to all {{category.category_name}}</a>
-
-  <br>
-  <br>
-  <form name="edit_post" method="POST" action="{% url 'edit_post' category_id=category.id post_id=post.id %}">
-    {% csrf_token %}
-    <input type="submit" value="Edit post" />
-  <form name="delete_post" method="POST" action="{% url 'delete_post' category_id=category.id post_id=post.id %}">
-    {% csrf_token %}
-    <input type="submit" value="Delete post" />
-  </form>
+  <a class="btn btn-default" href="{% url 'edit_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a class="btn btn-default" href="{% url 'delete_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+  <h3 class="post_title">{{post.post_title}}, ${{post.post_price}}</h3>
+  <!-- <h5 class="post_desc_head">Description: </h5> -->
+  <h5 class="post_description">{{post.post_description}}</h5>
+  <h5 class="post_contact">Email me for more info at {{post.post_email}}</h5>
+  <a href="{% url 'posts_list' category_id=category.id %}">Back to all {{category.category_name}}</a>
 </div>
 
 {% endblock %}
