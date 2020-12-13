@@ -3,13 +3,14 @@
 {% block content %}
 
 <div>
-  <a class="btn btn-default" href="{% url 'edit_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a class="btn btn-default" href="{% url 'delete_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-trash"></span></a>
-  <h3 class="post_title">{{post.post_title}}, ${{post.post_price}}</h3>
-  <!-- <h5 class="post_desc_head">Description: </h5> -->
-  <h5 class="post_description">{{post.post_description}}</h5>
-  <h5 class="post_contact">Email me for more info at {{post.post_email}}</h5>
-  <a href="{% url 'posts_list' category_id=category.id %}">Back to all {{category.category_name}}</a>
+    <h3 class="post_title">{{post.post_title}}, ${{post.post_price}}</h3>
+    <h5 class="post_description">{{post.post_description}}</h5>
+    <h5 class="post_contact">Email me for more info at {{post.post_email}}</h5>
+  <br>
+    <a class="btn btn-default" href="{% url 'edit_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'delete_post' category_id=category.id post_id=post.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+  <hr>
+    <a href="{% url 'posts_list' category_id=category.id %}">Back to all {{category.category_name}}</a>
 </div>
 
 {% endblock %}

@@ -13,6 +13,8 @@ class Post(models.Model):
     post_description = models.TextField()
     post_email = models.CharField(max_length=255)
     # post_photo = models.CharField(max_length=255)
+    # post_date = models.CharField(max_length=255)
+    # post_location = models.CharField(max_length=255)
 
     def __str__(self):
         return f"id={self.id}. post_title={self.post_title}, post_price={self.post_price}"

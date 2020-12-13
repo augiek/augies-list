@@ -1,8 +1,8 @@
 {% extends 'categories/base.html' %}
 
 {% block content %}
-<h1> All Categories </h1>
 
+<h2> All Categories </h2>
 <ul>
     {% for category in categories %}
       <div>
@@ -10,6 +10,6 @@
       </div>
     {% endfor %}
 </ul>
-
 <a href="{% url 'new_category' %}">Create a new category</a>
+
 {% endblock %}
